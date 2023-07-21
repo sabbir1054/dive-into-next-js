@@ -1,18 +1,24 @@
 import Head from "next/head";
-import RootLayout from "../Layouts/RootLayout";
+import RootLayout from "@/components/Layouts/RootLayout";
+import Banner from "@/components/UI/Banner";
+
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Head>
-        <title>Home Page</title>
-        <meta name="Home page" description="ok bye bye"></meta>
+        <title>PH-News Portal</title>
+        <meta
+          name="description"
+          content="This is news portal of programming hero made by next-js"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>This is my Homepage</h1>
-    </div>
+      <Banner />
+    </>
   );
 };
-
 export default HomePage;
 
 HomePage.getLayout = function getLayout(page) {
