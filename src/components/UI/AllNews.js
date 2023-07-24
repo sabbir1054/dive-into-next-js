@@ -1,5 +1,7 @@
-import { Card, Col, Image, Row } from "antd";
-import Meta from "antd/es/card/Meta";
+import { Card, Col, Image, Row, } from "antd";
+
+
+import Link from "next/link";
 
 const AllNews = ({ allNews }) => {
   return (
@@ -16,14 +18,14 @@ const AllNews = ({ allNews }) => {
               cover={
                 <Image
                   src={news?.image_url}
-                  width={300}
+                  width={340}
                   height={200}
                   responsive
                   alt="news image"
                 />
               }
             >
-              <Meta title={news?.title} />
+              <h3 style={{width:"100%"}}>{`${news?.title}`}</h3>
               <div
                 className="line"
                 style={{
@@ -52,21 +54,23 @@ const AllNews = ({ allNews }) => {
                   ? news?.description.slice(0, 70) + "..."
                   : news?.description}
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  marginTop: "20px",
-                  backgroundColor: "black",
-                  color: "white",
-                  width: "100%",
-                  padding: "2px 5px",
-                  fontWeight: "300",
-                  letterSpacing: "3px",
-                  textAlign: "center",
-                }}
-              >
-                KEEP READING
-              </p>
+              <Link href={`/news/${news?.id}`}>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    marginTop: "20px",
+                    backgroundColor: "black",
+                    color: "white",
+                    width: "100%",
+                    padding: "2px 5px",
+                    fontWeight: "300",
+                    letterSpacing: "3px",
+                    textAlign: "center",
+                  }}
+                >
+                  KEEP READING
+                </p>
+              </Link>
             </Card>{" "}
           </Col>
         ))}
